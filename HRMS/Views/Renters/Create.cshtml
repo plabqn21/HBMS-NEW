@@ -7,191 +7,135 @@
 
 <h2>Create</h2>
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
-
-
-    <div style="margin-left: 170px">
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Name" } })
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.RentDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Rent Date" } })
-            </div>
-
-
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", placeholder = "Address" } })
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.LeaveDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Leave Date" } })
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control", placeholder = "Mobile", @type = "number" } })
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.Advance, new { htmlAttributes = new { @class = "form-control", placeholder = "Advance", @type = "number" } })
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-
-                <input type="file" id="Picture" class="form-control" />
-                <label for="Picture">Select Picture</label>
-
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.MonthlyRentBill, new { htmlAttributes = new { @class = "form-control", placeholder = "Monthly Rent Bill", @type = "number" } })
-            </div>
-        </div>
-
-
-        <div class="row">
-
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-
-                <input type="file" id="IdFront" class="form-control" />
-                <label for="IdFront">Select Id Front Side</label>
-
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.ElectricBill, new { htmlAttributes = new { @class = "form-control", placeholder = "Electric Baill", @type = "number" } })
-            </div>
-        </div>
-
-        <div class="row">
-
-
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-
-                <input type="file" id="IdBack" class="form-control" />
-                <label for="IdBack">Select Id Back Side</label>
-
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.GassBill, new { htmlAttributes = new { @class = "form-control", placeholder = "Gass Bill", @type = "number" } })
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.NumberOfMember, new { htmlAttributes = new { @class = "form-control", placeholder = "No. of Member", @type = "number" } })
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.WaterBill, new { htmlAttributes = new { @class = "form-control", placeholder = "Water Bill", @type = "number" } })
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.DropDownList("Status", new List<SelectListItem>
-                    {
-                        new SelectListItem {Text = "Active", Value = "Active"},
-                        new SelectListItem {Text = "Inactive", Value = "Inactive"},
-
-                    }, htmlAttributes: new { @class = "form-control" })
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.CareTakerBill, new { htmlAttributes = new { @class = "form-control", placeholder = "Caretaker Bill", @type = "number" } })
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.DropDownList("HouseId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.HouseId, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.SecurityManBill, new { htmlAttributes = new { @class = "form-control", placeholder = "Security Bill", @type = "number" } })
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.FlatNo, new { htmlAttributes = new { @class = "form-control", placeholder = "Flat No." } })
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                @Html.EditorFor(model => model.ServiceCharge, new { htmlAttributes = new { @class = "form-control", placeholder = "Servive Charge", @type = "number" } })
-            </div>
-
-            <div class="btn pull-right">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save Renter Informations" class="btn btn-primary" />
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+  
+        <h4>Renter</h4>
+        <hr />
+        <table class="table">
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name)
+                        
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address)
+                       
+                            @Html.EditorFor(model => model.Address)
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Picture)
+                       
+                            @Html.EditorFor(model => model.Picture)
+                            @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+                      
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IdFront)
+                       
+                            @Html.EditorFor(model => model.IdFront)
+                            @Html.ValidationMessageFor(model => model.IdFront, "", new { @class = "text-danger" })
+                        </div>
+                  
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IdBack)
+                       
+                            @Html.EditorFor(model => model.IdBack)
+                            @Html.ValidationMessageFor(model => model.IdBack, "", new { @class = "text-danger" })
+                        </div>
+                  
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumberOfMember)
+                       
+                            @Html.EditorFor(model => model.NumberOfMember)
+                            @Html.ValidationMessageFor(model => model.NumberOfMember, "", new { @class = "text-danger" })
+                        </div>
+                  
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MobileNo)
+                       
+                            @Html.EditorFor(model => model.MobileNo)
+                            @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                        </div>
+                  
+                </td>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email)
+                       
+                            @Html.EditorFor(model => model.Email)
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RentDate)
+                       
+                            @Html.EditorFor(model => model.RentDate)
+                            @Html.ValidationMessageFor(model => model.RentDate, "", new { @class = "text-danger" })
+                        </div>
+                   
+
+                    <div class="form-group">
+                        @Html.Label("Leave Date")
+                       
+                            @Html.EditorFor(model => model.LeaveDate)
+                            @Html.ValidationMessageFor(model => model.LeaveDate, "", new { @class = "text-danger" })
+                     
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Status)
+                       
+                            @Html.EditorFor(model => model.Status)
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HouseId, "HouseId")
+                       
+                            @Html.DropDownList("HouseId")
+                            @Html.ValidationMessageFor(model => model.HouseId, "", new { @class = "text-danger" })
+                        </div>
+                   
+                  
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FlatNo)
+                       
+                            @Html.EditorFor(model => model.FlatNo)
+                            @Html.ValidationMessageFor(model => model.FlatNo, "", new { @class = "text-danger" })
+                        </div>
+                    
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    
+   
 
 }
 
-
-<script type="text/javascript">
-
-    $(function () {
-        $('#RentDate').datetimepicker({ format: "DD/MM/YYYY" });
-        $('#LeaveDate').datetimepicker({ format: "DD/MM/YYYY" });
-    });
-
-
-</script>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

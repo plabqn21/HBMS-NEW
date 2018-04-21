@@ -28,21 +28,7 @@ namespace HRMS.Models
         [Required]
         public string Status { get; set; }
 
-
-
-
-        public string MonthlyRentBill { get; set; }
-        public string Advance { get; set; }
-        public string ElectricBill { get; set; }
-        public string GassBill { get; set; }
-        public string WaterBill { get; set; }
-        public string CareTakerBill { get; set; }
-        public string SecurityManBill { get; set; }
-        public string ServiceCharge { get; set; }
-
-       
-
-
+   
         [ForeignKey("House")]
 
 

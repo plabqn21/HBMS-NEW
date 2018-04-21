@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
 
 namespace HRMS.Controllers
 {
@@ -49,10 +50,10 @@ namespace HRMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Renter renter, HttpPostedFileBase Picture, HttpPostedFileBase IdFront, HttpPostedFileBase IdBack)
+        public ActionResult Create(Renter renter, IEnumerable<HttpPostedFileBase> Files)
         {
 
-
+            
 
 
 
@@ -65,44 +66,44 @@ namespace HRMS.Controllers
 
 
 
-                if (Picture.ContentLength > 0)
-                {
+                //if (Picture.ContentLength > 0)
+                //{
 
-                    // code for saving the image file to a physical location.
-                    var fileName = Path.GetFileName(Picture.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images/RenterImage"), fileName);
-                    Picture.SaveAs(path);
-                    // prepare a relative path to be stored in the database and used to display later on.
-                    var dbpath = Url.Content(Path.Combine("~/Images/RenterImage", fileName));
-                    renter.Picture = dbpath;
-                }
+                //    // code for saving the image file to a physical location.
+                //    var fileName = Path.GetFileName(Picture.FileName);
+                //    var path = Path.Combine(Server.MapPath("~/Images/RenterImage"), fileName);
+                //    Picture.SaveAs(path);
+                //    // prepare a relative path to be stored in the database and used to display later on.
+                //    var dbpath = Url.Content(Path.Combine("~/Images/RenterImage", fileName));
+                //    renter.Picture = dbpath;
+                //}
 
-                if (IdFront.ContentLength > 0)
-                {
+                //if (IdFront.ContentLength > 0)
+                //{
 
-                    // code for saving the image file to a physical location.
-                    var fileName = Path.GetFileName(IdFront.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images/ID"), fileName);
-                    IdFront.SaveAs(path);
-                    // prepare a relative path to be stored in the database and used to display later on.
-                    var dbpath = Url.Content(Path.Combine("~/Images/ID", fileName));
-                    renter.IdFront = dbpath;
-                }
-
-
+                //    // code for saving the image file to a physical location.
+                //    var fileName = Path.GetFileName(IdFront.FileName);
+                //    var path = Path.Combine(Server.MapPath("~/Images/ID"), fileName);
+                //    IdFront.SaveAs(path);
+                //    // prepare a relative path to be stored in the database and used to display later on.
+                //    var dbpath = Url.Content(Path.Combine("~/Images/ID", fileName));
+                //    renter.IdFront = dbpath;
+                //}
 
 
-                if (IdBack.ContentLength > 0)
-                {
 
-                    // code for saving the image file to a physical location.
-                    var fileName = Path.GetFileName(IdBack.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images/ID"), fileName);
-                    IdBack.SaveAs(path);
-                    // prepare a relative path to be stored in the database and used to display later on.
-                    var dbpath = Url.Content(Path.Combine("~/Images/ID", fileName));
-                    renter.IdBack = dbpath;
-                }
+
+                //if (IdBack.ContentLength > 0)
+                //{
+
+                //    // code for saving the image file to a physical location.
+                //    var fileName = Path.GetFileName(IdBack.FileName);
+                //    var path = Path.Combine(Server.MapPath("~/Images/ID"), fileName);
+                //    IdBack.SaveAs(path);
+                //    // prepare a relative path to be stored in the database and used to display later on.
+                //    var dbpath = Url.Content(Path.Combine("~/Images/ID", fileName));
+                //    renter.IdBack = dbpath;
+                //}
 
 
 

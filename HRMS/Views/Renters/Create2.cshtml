@@ -1,0 +1,203 @@
+﻿@model HRMS.Models.Renter
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AftterLogIn.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <div style="margin-left: 170px">
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Name" } })
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("Rent Date", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.RentDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Rent Date" } })
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px; padding-right:10px">
+                @Html.Label("Address", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", placeholder = "Address" } })
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("Leave Date", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.LeaveDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Leave Date" } })
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("Mobile", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control", placeholder = "Mobile", @type = "number" } })
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("Picture", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <input type="file" id="Picture" class="form-control" />
+
+
+            </div>
+          
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("Id Front", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <input type="file" id="IdFront" class="form-control" />
+
+            </div>
+
+           
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("Id Back", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <input type="file" id="IdBack" class="form-control" />
+
+            </div>
+
+           
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+
+                @Html.Label("Members", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.NumberOfMember, new { htmlAttributes = new { @class = "form-control", placeholder = "No. of Member", @type = "number" } })
+            </div>
+          
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("Status", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.DropDownList("Status", new List<SelectListItem>
+        {
+            new SelectListItem {Text = "Active", Value = "Active"},
+            new SelectListItem {Text = "Inactive", Value = "Inactive"},
+
+        }, htmlAttributes: new { @class = "form-control" })
+            </div>
+           
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("House No", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.DropDownList("HouseId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HouseId, "", new { @class = "text-danger" })
+            </div>
+          
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                @Html.Label("Flat No", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.FlatNo, new { htmlAttributes = new { @class = "form-control", placeholder = "Flat No." } })
+            </div>
+           
+
+            <div class="btn pull-right">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save Renter Informations" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#RentDate').datetimepicker({ format: "DD/MM/YYYY" });
+        $('#LeaveDate').datetimepicker({ format: "DD/MM/YYYY" });
+    });
+
+
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
